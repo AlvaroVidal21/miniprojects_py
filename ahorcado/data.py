@@ -1,0 +1,1 @@
+DATA = ('Python', 'R', 'JavaScript')
