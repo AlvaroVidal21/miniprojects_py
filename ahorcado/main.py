@@ -19,7 +19,7 @@ def hangman_game(hangman_word, hyphhen):
         if input_letter == hangman_word:
             print('you win')
             break
-
+        
         # function to delete the letter 
         hangman_word_in_game = hangman.letter_deleter(hangman_word_in_game, input_letter)
         if input_letter in hangman_word:
@@ -29,6 +29,7 @@ def hangman_game(hangman_word, hyphhen):
 
         counter += 1
 
+    # 
     if hangman_word_in_game != '':
         print("-" * 20)
         print('give me the hangman word: ')
