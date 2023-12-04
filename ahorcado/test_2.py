@@ -1,11 +1,6 @@
-word_to_guess = 'java'
+word_to_guess = 'html'
 
-input_list = ['a', 'j']
-
-# input = 'a'
-
-# input_list.append(input)
-
+input_list = []
 
 
 def reveal_matching_letters(word, input_list):
@@ -42,11 +37,27 @@ def process_guess(word, word_analyze): # 'j-v-'
     # print(f'see: {word_see}') # I wante word see to be ['-', 'a', '-', 'a']
     # print(f'word: {word}')
 
+    word_see = ''.join(word_see)
     return word_see
 
 
-words_to_match = reveal_matching_letters(word_to_guess, input_list)
+def run():
+    counter = 0
+    win = False
+    while counter < 4 and win == False:
+        input_word = input('ingrese una letra o la palabra: ')
+        if input_word == word_to_guess:
+            print('ganaste')
+            win = True
+            break
+        input_list.append(input_word)
+        counter += 1
+        words_to_match = reveal_matching_letters(word_to_guess, input_list)
+        word_to_see = process_guess(words_to_match, word_to_guess)
+        print(word_to_see)
+        print('\n')
+        print('attempt: ', counter)
 
-word_to_see = process_guess(words_to_match, word_to_guess)
 
-print(word_to_see)
+if __name__ == '__main__':
+    run()
