@@ -1,55 +1,42 @@
 import random
 import data
-import hangman
-import math
-
-# dependencies functions = hangman_word, letter_in_hyphen, letter_deleter from hangman.py
-def hangman_game(hangman_word, hyphhen):
-    hangman_word_in_game = hangman_word
-    attempts = math.ceil(len(hangman_word) / 1.8)
-    counter = 0
-    print(f'You have {attempts} attempts to guess the word')
-    print(f'{hyphhen} the word have {len(hangman_word)} letters')
+# Modules
+import hangman_word
+import game_process
 
 
-    while counter < attempts and hangman_word_in_game != '':
-        input_letter = input("Guess the letter or put the word: ").lower()
-
-        # if the input is the word so the game is over and the player win
-        if input_letter == hangman_word:
-            print('you win')
-            break
-        
-        # function to delete the letter 
-        hangman_word_in_game = hangman.letter_deleter(hangman_word_in_game, input_letter)
-        if input_letter in hangman_word:
-            print('okidoki')
-        else:
-            print('nope')
-
-        counter += 1
-
-    # 
-    if hangman_word_in_game != '':
-        print("-" * 20)
-        print('give me the hangman word: ')
-
-        input_hangman_word = input().lower()
-        if input_hangman_word == hangman_word:
-            print('you win')
-        else:
-            print('you lose')
-
-    print(hangman_word)
-
-
-
-
+data = data.DATA
+input_letters = []
 
 def run():
-    hangman_word = hangman.hangman_word(data.DATA)
-    hyphhen = hangman.letter_in_hyphen(hangman_word)
-    hangman_game(hangman_word, hyphhen)
+    # 1- Obtener la palabra a adivinar
+    word_to_guess = hangman_word.hangman_word(data)
+    # 2- Obtener la variante en guiones de la palabra
+    hyphen_word_to_guess = hangman_word.letter_in_hyphen(word_to_guess)
+
+    # 3- Mostrar la variante en guiones de la palabra
+    print(hyphen_word_to_guess)
+
+    # 4- Iniciar el juego
+    # intentos
+    attempts = (len(word_to_guess) / 2) + 2
+    counter = 0
+
+    while counter < attempts:
+
+        letter_input = input('Ingrese una letra o la palabra a adivinar: ')
+        
+        if letter_input.lower() == word_to_guess.lower():
+            print('Ganaste')
+            break
+
+        # 5- Procesar la letra ingresada
+          
+        input_letters.append(letter_input)
+        word_to_analyze = game_process.reveal_matching_letters(word_to_guess, input_letters)
+        word_to_see = game_process.process_guess(word_to_analyze, word_to_guess)
+
+        print(word_to_see)
 
 
 if __name__ == '__main__':

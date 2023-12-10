@@ -1,6 +1,5 @@
 import random
-import data
-import math
+
 
 def hangman_word(data):
     index_random = random.randint(0, len(data) - 1)
@@ -10,16 +9,13 @@ def hangman_word(data):
 
 def letter_in_hyphen(hangman_word):
     letters = len(hangman_word)
-    hyphen = "-" * letters
+    hyphen = "❓" * letters
     return hyphen # hyphen = "-----"
 
-def letter_deleter(word, letter_to_delete):
-    word = word.replace(letter_to_delete, '')
-    return word
 
 
 
-
+# Aquí obtenemos la palabra a adivinar y su variante en guiones (que solo se usará la primera vez para mostrar la longitud de la palabra)
 
 
 
