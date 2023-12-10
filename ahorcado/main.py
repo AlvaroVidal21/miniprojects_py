@@ -1,4 +1,3 @@
-import random
 import data
 # Modules
 import hangman_word
