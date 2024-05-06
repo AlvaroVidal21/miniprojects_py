@@ -20,6 +20,7 @@ class CuentaBancaria(ABC):
         self.__saldo -= monto
 
     @abstractmethod
+    # Obliga a que las clases hijas implementen este método
     def generar_interes(self, interes:float):
         pass
 
