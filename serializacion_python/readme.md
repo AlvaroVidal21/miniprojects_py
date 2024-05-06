@@ -1,11 +1,11 @@
 # Serializacion en Python
 
 Este proyecto busco poner en práctica los siguientes requerimientos:
-- El uso de serializacion de listas en archivos binarios con la librería interna `pickle`.
+- El **uso de serializacion** de listas en archivos binarios con la librería interna `pickle`.
 - También utilizo el uso de decoradores para darle eficiencia al código.
-- Almacenamiento y lectura de data mediante archivos binarios.
-- Uso de POO: Clases, Herencias y Métodos abstractos mediante la librería `abc`.
-- Interfaces mediante línea de comandos.
+- **Almacenamiento y lectura** de data mediante archivos binarios.
+- **Uso de POO**: Clases, Herencias y Métodos abstractos mediante la librería `abc`.
+- **Interfaces** mediante línea de comandos.
 
 ## Pequeños fragmentos 🧩
 
